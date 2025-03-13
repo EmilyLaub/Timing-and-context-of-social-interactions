@@ -14,7 +14,35 @@ library(car)
 library(performance)
 library(ggplot2)
 
+##############
+# Graphing theme
+##############################
+# Graphing theme
+theme_mine2 <- function(base_size = 20, base_family = "Helvetica") {
+  # Starts with theme_grey and then modify some parts
+  theme_bw(base_size = base_size, base_family = base_family) %+replace%
+    theme(
+      strip.background = element_blank(),
+      strip.text.x = element_text(size = 20),
+      strip.text.y = element_text(size = 20),
+      axis.text.x = element_text(size=22),
+      axis.text.y = element_text(size=22,hjust=1),
+      axis.ticks =  element_line(colour = "black"), 
+      axis.title.x= element_text(size=28),
+      axis.title.y= element_text(size=28,angle=90),
+      panel.background = element_blank(), 
+      panel.border =element_blank(), 
+      panel.grid.major = element_blank(), 
+      panel.grid.minor = element_blank(), 
+      panel.margin = unit(1.0, "lines"), 
+      plot.background = element_blank(), 
+      plot.margin = unit(c(1,  1, 1, 1), "lines"),
+      axis.line.x = element_line(color="black", size = 1),
+      axis.line.y = element_line(color="black", size = 1)
+    )
+}
 
+#############################################################
 
 # Data files
 Clean_graph <- read.csv("Day_interactions_2021_cleaned_20250311.csv") # Interactions during day associations
